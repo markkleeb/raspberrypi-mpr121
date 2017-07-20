@@ -70,21 +70,21 @@ pygame.init()
 #UNCOMMENT FOR ANIMAL SOUNDS :)
 
 SOUND_MAPPING = {
-0: '~/Desktop/New_For_Mark/1.circle.wav',
-1: '~/Desktop/New_For_Mark/1.square.wav',
-2: '~/Desktop/New_For_Mark/1.triangle.wav',
-3: '~/Desktop/New_For_Mark/2.circle.wav',
-4: '~/Desktop/New_For_Mark/2.square.wav',
-5: '~/Desktop/New_For_Mark/2.triangle.wav',
-6: '~/Desktop/New_For_Mark/3.circle.wav',
-7: '~/Desktop/New_For_Mark/3.square.wav',
-8: '~/Desktop/New_For_Mark/3.triangle.wav',
-9: '~/Desktop/New_For_Mark/4.circle.wav',
-10: '~/Desktop/New_For_Mark/4.square.wav',
-11: '~/Desktop/New_For_Mark/4.triangle.wav',
-12: '~/Desktop/New_For_Mark/5.circle.wav',
-13: '~/Desktop/New_For_Mark/5.square.wav',
-14: '~/Desktop/New_For_Mark/5.triangle.wav',
+0: '/home/pi/Desktop/New_For_Mark/1.circle.wav',
+1: '/home/pi/Desktop/New_For_Mark/1.square.wav',
+2: '/home/pi/Desktop/New_For_Mark/1.triangle.wav',
+3: '/home/pi/Desktop/New_For_Mark/2.circle.wav',
+4: '/home/pi/Desktop/New_For_Mark/2.square.wav',
+5: '/home/pi/Desktop/New_For_Mark/2.triangle.wav',
+6: '/home/pi/Desktop/New_For_Mark/3.circle.wav',
+7: '/home/pi/Desktop/New_For_Mark/3.square.wav',
+8: '/home/pi/Desktop/New_For_Mark/3.triangle.wav',
+9: '/home/pi/Desktop/New_For_Mark/4.circle.wav',
+10: '/home/pi/Desktop/New_For_Mark/4.square.wav',
+11: '/home/pi/Desktop/New_For_Mark/4.triangle.wav',
+12: '/home/pi/Desktop/New_For_Mark/5.circle.wav',
+13: '/home/pi/Desktop/New_For_Mark/5.square.wav',
+14: '/home/pi/Desktop/New_For_Mark/5.triangle.wav',
  }
 
 sounds = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
@@ -106,7 +106,7 @@ while True:
         # First check if transitioned from not touched to touched.
         if current_touched & pin_bit and not last_touched & pin_bit:
             print('{0} touched!'.format(i))
-            j = random(0,14)
+           # j = random(0,14)
             if (sounds[i]):
                 sounds[i].play(loops=-1)
         if not current_touched & pin_bit and last_touched & pin_bit:

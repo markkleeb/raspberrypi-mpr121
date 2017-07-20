@@ -45,6 +45,8 @@ if not cap.begin():
 # Also you can specify an optional I2C bus with the bus keyword parameter.
 #cap.begin(busnum=1)
 
+cap.set_thresholds(12, 6)
+
 pygame.mixer.pre_init(44100, -16, 12, 512)
 pygame.init()
 
@@ -105,6 +107,9 @@ while True:
             print('{0} touched!'.format(i))
             if (sounds[i]):
                 sounds[i].play(loops=-1)
+		print cap.filtered_data(i)
+		print cap.baseline_data(i)
+	
         if not current_touched & pin_bit and last_touched & pin_bit:
         	print('{0} released!'.format(i))
 		if (sounds[i]):
@@ -122,8 +127,8 @@ while True:
 
     # If you're curious or want to see debug info for each pin, uncomment the
     # following lines:
-    #print('\t\t\t\t\t\t\t\t\t\t\t\t\t 0x{0:0X}'.format(cap.touched()))
-    #filtered = [cap.filtered_data(i) for i in range(12)]
-    #print('Filt:', '\t'.join(map(str, filtered)))
-    #base = [cap.baseline_data(i) for i in range(12)]
-    #print('Base:', '\t'.join(map(str, base)))
+   # print('\t\t\t\t\t\t\t\t\t\t\t\t\t 0x{0:0X}'.format(cap.touched()))
+   # filtered = [cap.filtered_data(6)]
+   # print('Filt:', '\t'.join(map(str, filtered)))
+   # base = [cap.baseline_data(6)]
+   # print('Base:', '\t'.join(map(str, base)))
