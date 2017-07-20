@@ -109,6 +109,7 @@ while True:
            # j = random(0,14)
             if (sounds[i]):
                 sounds[i].play(loops=-1)
+                print cap.filtered_data
         if not current_touched & pin_bit and last_touched & pin_bit:
         	print('{0} released!'.format(i))
 		if (sounds[i]):
