@@ -70,21 +70,24 @@ pygame.init()
 #UNCOMMENT FOR ANIMAL SOUNDS :)
 
 SOUND_MAPPING = {
-0: '~/Desktop/FILES_for_MARK/earth_square/aiff/earth_cyma_square.aif',
-1: '~/Desktop/FILES_for_MARK/earth_square/aiff/earth_sono_granular.square.aif',
-2: '/usr/share/scratch/Media/Sounds/Animal/Dog1.wav',
-3: '/usr/share/scratch/Media/Sounds/Animal/Dog2.wav',
-4: '/usr/share/scratch/Media/Sounds/Animal/Duck.wav',
-5: '/usr/share/scratch/Media/Sounds/Animal/Goose.wav',
-6: '/usr/share/scratch/Media/Sounds/Animal/Horse.wav',
-7: '/usr/share/scratch/Media/Sounds/Animal/Kitten.wav',
-8: '/usr/share/scratch/Media/Sounds/Animal/Meow.wav',
-9: '/usr/share/scratch/Media/Sounds/Animal/Owl.wav',
-10: '/usr/share/scratch/Media/Sounds/Animal/Rooster.wav',
-11: '/usr/share/scratch/Media/Sounds/Animal/WolfHowl.wav',
+0: '~/Desktop/New_For_Mark/1.circle.wav',
+1: '~/Desktop/New_For_Mark/1.square.wav',
+2: '~/Desktop/New_For_Mark/1.triangle.wav',
+3: '~/Desktop/New_For_Mark/2.circle.wav',
+4: '~/Desktop/New_For_Mark/2.square.wav',
+5: '~/Desktop/New_For_Mark/2.triangle.wav',
+6: '~/Desktop/New_For_Mark/3.circle.wav',
+7: '~/Desktop/New_For_Mark/3.square.wav',
+8: '~/Desktop/New_For_Mark/3.triangle.wav',
+9: '~/Desktop/New_For_Mark/4.circle.wav',
+10: '~/Desktop/New_For_Mark/4.square.wav',
+11: '~/Desktop/New_For_Mark/4.triangle.wav',
+12: '~/Desktop/New_For_Mark/5.circle.wav',
+13: '~/Desktop/New_For_Mark/5.square.wav',
+14: '~/Desktop/New_For_Mark/5.triangle.wav',
  }
 
-sounds = [0,0,0,0,0,0,0,0,0,0,0,0]
+sounds = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
 for key,soundfile in SOUND_MAPPING.iteritems():
         sounds[key] =  pygame.mixer.Sound(soundfile)
@@ -103,6 +106,7 @@ while True:
         # First check if transitioned from not touched to touched.
         if current_touched & pin_bit and not last_touched & pin_bit:
             print('{0} touched!'.format(i))
+            j = random(0,14)
             if (sounds[i]):
                 sounds[i].play(loops=-1)
         if not current_touched & pin_bit and last_touched & pin_bit:
