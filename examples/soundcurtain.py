@@ -193,7 +193,7 @@ for key,soundfile in water_sono.iteritems():
         sounds9[key].play(loops=-1)
 
 
-sounds = [0, sounds1, sounds2, sounds3, sounds4, sounds5, sounds6, sounds7, sounds8, sounds9]
+sounds = [sounds1, sounds2, sounds3, sounds4, sounds5, sounds6, sounds7, sounds8, sounds9]
 
 # Main loop to print a message every time a pin is touched.
 print('Press Ctrl-C to quit.')
@@ -201,7 +201,7 @@ last_touched = cap.touched()
 while True:
     current_touched = cap.touched()
     # Check each pin's last and current state to see if it was pressed or released.
-    for i in range(10):
+    for i in range(9):
         # Each pin is represented by a bit in the touched value.  A value of 1
         # means the pin is being touched, and 0 means it is not being touched.
         pin_bit = 1 << i
