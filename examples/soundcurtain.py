@@ -21,6 +21,7 @@
 import sys
 import time
 import pygame
+import random
 
 import Adafruit_MPR121.MPR121 as MPR121
 
@@ -206,7 +207,7 @@ while True:
         # First check if transitioned from not touched to touched.
         if current_touched & pin_bit and not last_touched & pin_bit:
             print('{0} touched!'.format(i))
-            j = random(0,3)
+            j = random.randint(0,2)
             if (sounds[i][j]):
                 sounds[i][j].set_volume(1)
                 print cap.filtered_data(i)
