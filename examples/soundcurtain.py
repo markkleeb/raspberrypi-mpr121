@@ -199,7 +199,7 @@ last_touched = cap.touched()
 while True:
     current_touched = cap.touched()
     # Check each pin's last and current state to see if it was pressed or released.
-    for i in range(12):
+    for i in range(9):
         # Each pin is represented by a bit in the touched value.  A value of 1
         # means the pin is being touched, and 0 means it is not being touched.
         pin_bit = 1 << i
