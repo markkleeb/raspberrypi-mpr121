@@ -46,8 +46,9 @@ if not cap.begin():
 # Also you can specify an optional I2C bus with the bus keyword parameter.
 #cap.begin(busnum=1)
 
-pygame.mixer.pre_init(44100, -16, 27, 512)
+pygame.mixer.pre_init(44100, -16, 12, 512)
 pygame.init()
+pygame.mixer.set_num_channels(27)
 
 cap.set_thresholds(10, 4)
 
@@ -76,7 +77,7 @@ cap.set_thresholds(10, 4)
 earth_cyma = {
 0: '/home/pi/Adafruit_Python_MPR121/examples/loops/EARTH_cyma_loop1.wav',
 1: '/home/pi/Adafruit_Python_MPR121/examples/loops/EARTH_cyma_loop2.wav',
-2: '/home/pi/Adafruit_Python_MPR121/examples/loops/EARTH_cyma_loop3.wav',
+2: '/home/pi/Adafruit_Python_MPR121/examples/loops/EARTH_cyma_loop3.wav'
  }
 
 sounds1 = [0,0,0]
@@ -89,7 +90,7 @@ for key,soundfile in earth_cyma.iteritems():
 earth_grain = {
 0: '/home/pi/Adafruit_Python_MPR121/examples/loops/EARTH_grain_loop1.wav',
 1: '/home/pi/Adafruit_Python_MPR121/examples/loops/EARTH_grain_loop2.wav',
-2: '/home/pi/Adafruit_Python_MPR121/examples/loops/EARTH_grain_loop3.wav',
+2: '/home/pi/Adafruit_Python_MPR121/examples/loops/EARTH_grain_loop3.wav'
  }
 
 sounds2 = [0,0,0]
@@ -102,7 +103,7 @@ for key,soundfile in earth_grain.iteritems():
 earth_sono = {
 0: '/home/pi/Adafruit_Python_MPR121/examples/loops/EARTH_sono_loop1.wav',
 1: '/home/pi/Adafruit_Python_MPR121/examples/loops/EARTH_sono_loop2.wav',
-2: '/home/pi/Adafruit_Python_MPR121/examples/loops/EARTH_sono_loop3.wav',
+2: '/home/pi/Adafruit_Python_MPR121/examples/loops/EARTH_sono_loop3.wav'
  }
 
 sounds3 = [0,0,0]
@@ -115,7 +116,7 @@ for key,soundfile in earth_sono.iteritems():
 fire_cyma = {
 0: '/home/pi/Adafruit_Python_MPR121/examples/loops/FIRE_cyma_loop1.wav',
 1: '/home/pi/Adafruit_Python_MPR121/examples/loops/FIRE_cyma_loop2.wav',
-2: '/home/pi/Adafruit_Python_MPR121/examples/loops/FIRE_cyma_loop3.wav',
+2: '/home/pi/Adafruit_Python_MPR121/examples/loops/FIRE_cyma_loop3.wav'
  }
 
 sounds4 = [0,0,0]
@@ -128,7 +129,7 @@ for key,soundfile in fire_cyma.iteritems():
 fire_grain = {
 0: '/home/pi/Adafruit_Python_MPR121/examples/loops/FIRE_grain_loop1.wav',
 1: '/home/pi/Adafruit_Python_MPR121/examples/loops/FIRE_grain_loop2.wav',
-2: '/home/pi/Adafruit_Python_MPR121/examples/loops/FIRE_grain_loop3.wav',
+2: '/home/pi/Adafruit_Python_MPR121/examples/loops/FIRE_grain_loop3.wav'
  }
 
 sounds5 = [0,0,0]
@@ -141,7 +142,7 @@ for key,soundfile in fire_grain.iteritems():
 fire_sono = {
 0: '/home/pi/Adafruit_Python_MPR121/examples/loops/FIRE_sono_loop1.wav',
 1: '/home/pi/Adafruit_Python_MPR121/examples/loops/FIRE_sono_loop2.wav',
-2: '/home/pi/Adafruit_Python_MPR121/examples/loops/FIRE_sono_loop3.wav',
+2: '/home/pi/Adafruit_Python_MPR121/examples/loops/FIRE_sono_loop3.wav'
  }
 
 sounds6 = [0,0,0]
@@ -155,7 +156,7 @@ for key,soundfile in fire_sono.iteritems():
 water_cyma = {
 0: '/home/pi/Adafruit_Python_MPR121/examples/loops/WATER_cyma_loop1.wav',
 1: '/home/pi/Adafruit_Python_MPR121/examples/loops/WATER_cyma_loop2.wav',
-2: '/home/pi/Adafruit_Python_MPR121/examples/loops/WATER_cyma_loop3.wav',
+2: '/home/pi/Adafruit_Python_MPR121/examples/loops/WATER_cyma_loop3.wav'
  }
 
 sounds7 = [0,0,0]
@@ -168,7 +169,7 @@ for key,soundfile in water_cyma.iteritems():
 water_grain = {
 0: '/home/pi/Adafruit_Python_MPR121/examples/loops/WATER_grain_loop1.wav',
 1: '/home/pi/Adafruit_Python_MPR121/examples/loops/WATER_grain_loop2.wav',
-2: '/home/pi/Adafruit_Python_MPR121/examples/loops/WATER_grain_loop3.wav',
+2: '/home/pi/Adafruit_Python_MPR121/examples/loops/WATER_grain_loop3.wav'
  }
 
 sounds8 = [0,0,0]
@@ -181,7 +182,7 @@ for key,soundfile in water_grain.iteritems():
 water_sono = {
 0: '/home/pi/Adafruit_Python_MPR121/examples/loops/WATER_sono_loop1.wav',
 1: '/home/pi/Adafruit_Python_MPR121/examples/loops/WATER_sono_loop2.wav',
-2: '/home/pi/Adafruit_Python_MPR121/examples/loops/WATER_sono_loop3.wav',
+2: '/home/pi/Adafruit_Python_MPR121/examples/loops/WATER_sono_loop3.wav'
  }
 
 sounds9 = [0,0,0]
@@ -192,7 +193,7 @@ for key,soundfile in water_sono.iteritems():
         sounds9[key].play(loops=-1)
 
 
-sounds = [sounds1, sounds2, sounds3, sounds4, sounds5, sounds6, sounds7, sounds8, sounds9]
+sounds = [0, sounds1, sounds2, sounds3, sounds4, sounds5, sounds6, sounds7, sounds8, sounds9]
 
 # Main loop to print a message every time a pin is touched.
 print('Press Ctrl-C to quit.')
@@ -200,7 +201,7 @@ last_touched = cap.touched()
 while True:
     current_touched = cap.touched()
     # Check each pin's last and current state to see if it was pressed or released.
-    for i in range(9):
+    for i in range(10):
         # Each pin is represented by a bit in the touched value.  A value of 1
         # means the pin is being touched, and 0 means it is not being touched.
         pin_bit = 1 << i
@@ -213,8 +214,8 @@ while True:
                 print cap.filtered_data(i)
         if not current_touched & pin_bit and last_touched & pin_bit:
         	print('{0} released!'.format(i))
-        for j in range(3):
-          sounds[i][j].set_volume(0)
+        	for j in range(3):
+         		sounds[i][j].set_volume(0)
 			#sounds[i].stop()
     # Update last state and wait a short period before repeating.
     last_touched = current_touched
