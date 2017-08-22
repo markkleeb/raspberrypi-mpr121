@@ -212,7 +212,7 @@ while True:
                 print cap.filtered_data(i)
         if not current_touched & pin_bit and last_touched & pin_bit:
         	print('{0} released!'.format(i))
-        for j in sounds[i]:
+        for j in range(3):
           sounds[i][j].set_volume(0)
 			#sounds[i].stop()
     # Update last state and wait a short period before repeating.
