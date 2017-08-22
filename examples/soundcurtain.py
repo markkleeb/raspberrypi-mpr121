@@ -45,7 +45,7 @@ if not cap.begin():
 # Also you can specify an optional I2C bus with the bus keyword parameter.
 #cap.begin(busnum=1)
 
-pygame.mixer.pre_init(44100, -16, 12, 512)
+pygame.mixer.pre_init(44100, -16, 27, 512)
 pygame.init()
 
 cap.set_thresholds(10, 4)
@@ -71,29 +71,127 @@ cap.set_thresholds(10, 4)
 
 #UNCOMMENT FOR ANIMAL SOUNDS :)
 
-SOUND_MAPPING = {
-0: '/home/pi/Desktop/New_For_Mark/1.circle.wav',
-1: '/home/pi/Desktop/New_For_Mark/1.square.wav',
-2: '/home/pi/Desktop/New_For_Mark/1.triangle.wav',
-3: '/home/pi/Desktop/New_For_Mark/2.circle.wav',
-4: '/home/pi/Desktop/New_For_Mark/2.square.wav',
-5: '/home/pi/Desktop/New_For_Mark/2.triangle.wav',
-6: '/home/pi/Desktop/New_For_Mark/3.circle.wav',
-7: '/home/pi/Desktop/New_For_Mark/3.square.wav',
-8: '/home/pi/Desktop/New_For_Mark/3.triangle.wav',
-9: '/home/pi/Desktop/New_For_Mark/4.circle.wav',
-10: '/home/pi/Desktop/New_For_Mark/4.square.wav',
-11: '/home/pi/Desktop/New_For_Mark/4.triangle.wav',
-12: '/home/pi/Desktop/New_For_Mark/5.circle.wav',
-13: '/home/pi/Desktop/New_For_Mark/5.square.wav',
-14: '/home/pi/Desktop/New_For_Mark/5.triangle.wav',
+
+earth_cyma = {
+0: '/home/pi/Adafruit_Python_MPR121/examples/loops/EARTH_cyma_loop1.wav',
+1: '/home/pi/Adafruit_Python_MPR121/examples/loops/EARTH_cyma_loop2.wav',
+2: '/home/pi/Adafruit_Python_MPR121/examples/loops/EARTH_cyma_loop3.wav',
  }
 
-sounds = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+sounds1 = [0,0,0]
 
-for key,soundfile in SOUND_MAPPING.iteritems():
-        sounds[key] =  pygame.mixer.Sound(soundfile)
-        sounds[key].set_volume(1);
+for key,soundfile in earth_cyma.iteritems():
+        sounds1[key] =  pygame.mixer.Sound(soundfile)
+        sounds1[key].set_volume(0);
+        sounds1[key].play(loops=-1)
+
+earth_grain = {
+0: '/home/pi/Adafruit_Python_MPR121/examples/loops/EARTH_grain_loop1.wav',
+1: '/home/pi/Adafruit_Python_MPR121/examples/loops/EARTH_grain_loop2.wav',
+2: '/home/pi/Adafruit_Python_MPR121/examples/loops/EARTH_grain_loop3.wav',
+ }
+
+sounds2 = [0,0,0]
+
+for key,soundfile in earth_grain.iteritems():
+        sounds2[key] =  pygame.mixer.Sound(soundfile)
+        sounds2[key].set_volume(0);
+        sounds2[key].play(loops=-1)
+
+earth_sono = {
+0: '/home/pi/Adafruit_Python_MPR121/examples/loops/EARTH_sono_loop1.wav',
+1: '/home/pi/Adafruit_Python_MPR121/examples/loops/EARTH_sono_loop2.wav',
+2: '/home/pi/Adafruit_Python_MPR121/examples/loops/EARTH_sono_loop3.wav',
+ }
+
+sounds3 = [0,0,0]
+
+for key,soundfile in earth_sono.iteritems():
+        sounds3[key] =  pygame.mixer.Sound(soundfile)
+        sounds3[key].set_volume(0);
+        sounds3[key].play(loops=-1)
+
+fire_cyma = {
+0: '/home/pi/Adafruit_Python_MPR121/examples/loops/FIRE_cyma_loop1.wav',
+1: '/home/pi/Adafruit_Python_MPR121/examples/loops/FIRE_cyma_loop2.wav',
+2: '/home/pi/Adafruit_Python_MPR121/examples/loops/FIRE_cyma_loop3.wav',
+ }
+
+sounds4 = [0,0,0]
+
+for key,soundfile in fire_cyma.iteritems():
+        sounds4[key] =  pygame.mixer.Sound(soundfile)
+        sounds4[key].set_volume(0);
+        sounds4[key].play(loops=-1)
+
+fire_grain = {
+0: '/home/pi/Adafruit_Python_MPR121/examples/loops/FIRE_grain_loop1.wav',
+1: '/home/pi/Adafruit_Python_MPR121/examples/loops/FIRE_grain_loop2.wav',
+2: '/home/pi/Adafruit_Python_MPR121/examples/loops/FIRE_grain_loop3.wav',
+ }
+
+sounds5 = [0,0,0]
+
+for key,soundfile in fire_grain.iteritems():
+        sounds5[key] =  pygame.mixer.Sound(soundfile)
+        sounds5[key].set_volume(0);
+        sounds5[key].play(loops=-1)
+
+fire_sono = {
+0: '/home/pi/Adafruit_Python_MPR121/examples/loops/FIRE_sono_loop1.wav',
+1: '/home/pi/Adafruit_Python_MPR121/examples/loops/FIRE_sono_loop2.wav',
+2: '/home/pi/Adafruit_Python_MPR121/examples/loops/FIRE_sono_loop3.wav',
+ }
+
+sounds6 = [0,0,0]
+
+for key,soundfile in fire_sono.iteritems():
+        sounds6[key] =  pygame.mixer.Sound(soundfile)
+        sounds6[key].set_volume(0);
+        sounds6[key].play(loops=-1)
+
+
+water_cyma = {
+0: '/home/pi/Adafruit_Python_MPR121/examples/loops/WATER_cyma_loop1.wav',
+1: '/home/pi/Adafruit_Python_MPR121/examples/loops/WATER_cyma_loop2.wav',
+2: '/home/pi/Adafruit_Python_MPR121/examples/loops/WATER_cyma_loop3.wav',
+ }
+
+sounds7 = [0,0,0]
+
+for key,soundfile in water_cyma.iteritems():
+        sounds7[key] =  pygame.mixer.Sound(soundfile)
+        sounds7[key].set_volume(0);
+        sounds7[key].play(loops=-1)
+
+water_grain = {
+0: '/home/pi/Adafruit_Python_MPR121/examples/loops/WATER_grain_loop1.wav',
+1: '/home/pi/Adafruit_Python_MPR121/examples/loops/WATER_grain_loop2.wav',
+2: '/home/pi/Adafruit_Python_MPR121/examples/loops/WATER_grain_loop3.wav',
+ }
+
+sounds8 = [0,0,0]
+
+for key,soundfile in water_grain.iteritems():
+        sounds8[key] =  pygame.mixer.Sound(soundfile)
+        sounds8[key].set_volume(0);
+        sounds8[key].play(loops=-1)
+
+water_sono = {
+0: '/home/pi/Adafruit_Python_MPR121/examples/loops/WATER_sono_loop1.wav',
+1: '/home/pi/Adafruit_Python_MPR121/examples/loops/WATER_sono_loop2.wav',
+2: '/home/pi/Adafruit_Python_MPR121/examples/loops/WATER_sono_loop3.wav',
+ }
+
+sounds9 = [0,0,0]
+
+for key,soundfile in water_sono.iteritems():
+        sounds9[key] =  pygame.mixer.Sound(soundfile)
+        sounds9[key].set_volume(0);
+        sounds9[key].play(loops=-1)
+
+
+sounds = [sounds1, sounds2, sounds3, sounds4, sounds5, sounds6, sounds7, sounds8, sounds9]
 
 # Main loop to print a message every time a pin is touched.
 print('Press Ctrl-C to quit.')
@@ -108,14 +206,14 @@ while True:
         # First check if transitioned from not touched to touched.
         if current_touched & pin_bit and not last_touched & pin_bit:
             print('{0} touched!'.format(i))
-           # j = random(0,14)
-            if (sounds[i]):
-                sounds[i].play(loops=-1)
+            j = random(0,3)
+            if (sounds[i][j]):
+                sounds[i][j].set_volume(1)
                 print cap.filtered_data(i)
         if not current_touched & pin_bit and last_touched & pin_bit:
         	print('{0} released!'.format(i))
-		if (sounds[i]):
-			sounds[i].fadeout(500)
+        for j in sounds[i]:
+          sounds[i][j].set_volume(0)
 			#sounds[i].stop()
     # Update last state and wait a short period before repeating.
     last_touched = current_touched
